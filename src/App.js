@@ -15,6 +15,12 @@ export default function Board() {
     setValues(nextValues);
     (player==='X')?setPlayer('O'):setPlayer('X');
   }
+
+  function reset(){
+    setValues(Array(9).fill(null));
+    setPlayer('X');
+  }
+
   function checkWinner(values){
     let lines;
     lines = [
@@ -55,6 +61,11 @@ export default function Board() {
         <Square value={values[6]} onSquareClick={() => handleClick(6)}/>
         <Square value={values[7]} onSquareClick={() => handleClick(7)}/>
         <Square value={values[8]} onSquareClick={() => handleClick(8)}/>
+      </div>
+      <div>
+        <button onClick={reset}>
+          RESET
+        </button>
       </div>
     </div>
   );
